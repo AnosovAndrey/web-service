@@ -1,0 +1,8 @@
+/scripts/
+/src/main/resources/application.properties
+/src/main/resources/application-dev.properties
+/target/
+/out/
+/.idea/
+/uploads/
+/src/main/resources/templates/buffer.ftlh

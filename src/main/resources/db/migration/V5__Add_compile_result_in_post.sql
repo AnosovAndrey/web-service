@@ -1,0 +1,1 @@
+ALTER TABLE post ADD output varchar(1024);

@@ -63,7 +63,7 @@ public class CompileExecutor implements Runnable{
         }
 
         String output = getOutput();
-        System.out.println(output);
+        //System.out.println(output);
         Post originalPost = postRepo.findById(this.post.getId()).get();
         originalPost.setOutput(output);
         postRepo.save(originalPost);
@@ -158,13 +158,15 @@ public class CompileExecutor implements Runnable{
             e.printStackTrace();
         }
 
-        File inputFile = new File(path + folder + "inputFile");
+            File inputFile = new File(path + folder + "inputFile");
 
         try {
             inputFile.createNewFile();
-            FileWriter myWriter = new FileWriter(inputFile);
-            myWriter.write(input);
-            myWriter.close();
+            if (input != null && !input.isEmpty()) {
+                FileWriter myWriter = new FileWriter(inputFile);
+                myWriter.write(input);
+                myWriter.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -179,7 +181,7 @@ public class CompileExecutor implements Runnable{
     }
 
     private void deleteDirectory(){
-        File newDir = new File( path + folder);
+        File newDir = new File( path + "temp/");
         FileSystemUtils.deleteRecursively(newDir);
     }
 }

@@ -12,7 +12,7 @@
                     <#if !(comment.filename?ends_with("jpg") || comment.filename?ends_with("png") || comment.filename?ends_with("PNG"))>
                         <a href="/img/${comment.filename}" download>${comment.filename}</a>
                     <#else>
-                        <img src="/img/${comment.filename}" class="card-img-top">
+                        <img style="width: 100px; height: 100px;" src="/img/${comment.filename}" class="card-img-top">
                     </#if>
                 </#if>
             </div>

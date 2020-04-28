@@ -18,7 +18,7 @@
                     <a class="ml-3"><#include "parts/codeCompile.ftlh" /></a>
                 </#if>
             <#else>
-                <img src="/img/${post.filename}" class="card-img-top">
+                <img style="width: 400px; height: 400px;" src="/img/${post.filename}" class="card-img-top">
             </#if>
         </#if>
     <p class="text-secondary mt-3" id="compile-output"><#if post.output??>Compile output: ${post.output}</#if></p>

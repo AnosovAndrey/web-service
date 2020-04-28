@@ -21,9 +21,7 @@
                 <img src="/img/${post.filename}" class="card-img-top">
             </#if>
         </#if>
-        <#if post.output??>
-            <p class="text-secondary mt-3" id="compile-output">Compile output: ${post.output}</p>
-        </#if>
+    <p class="text-secondary mt-3" id="compile-output"><#if post.output??>Compile output: ${post.output}</#if></p>
     </div>
     <#if isCurrentUser>
         <div class="card-footer bg-transparent">
@@ -40,8 +38,8 @@
         </div>
     </#if>
 </div>
-
 <script type="text/javascript" src="/static/main.js"></script>
+
 
 <h2>Comments:</h2>
 

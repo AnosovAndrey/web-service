@@ -165,6 +165,7 @@ public class PostController {
             }
 
             saveFile(post, file);
+            post.setOutput(null);
 
             postRepo.save(post);
         }

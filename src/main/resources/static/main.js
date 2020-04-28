@@ -5,14 +5,56 @@ jQuery(document).ready(function () {
         //stop submit the form, we will post it manually.
         event.preventDefault();
 
-         $('#compile-output').html("wait...");
          $("#btn-submit-compile").prop("disabled", true);
 
-        setTimeout(fire_ajax_submit, 16000);
+        compile_ajax_submit();
+
+        setTimeout(fire_ajax_submit, 20000);
 
     });
 
 });
+
+function compile_ajax_submit() {
+    var postId = $("#postId").val();
+    var token =  $('input[name="_csrf"]').attr('value');
+    var input = $("#compile-form-input").val();
+    var compiler = $("#compile-form-select").val();
+
+    $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            headers: {
+                'X-CSRF-Token': token
+            },
+            url: "/compile/post/" + postId + "/" + compiler,
+            data: input,
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                var json = JSON.stringify(data, null, 4);
+                $('#compile-output').html(json);
+
+                console.log("SUCCESS : ", data);
+
+            },
+            error: function (e) {
+
+                var json = e.responseText;
+                $('#compile-output').html(json);
+
+                console.log("ERROR : ", e);
+
+            },
+            complete: function () {
+                  setTimeout(function () {
+                              $('#compile-output').html("wait...");
+                          } , 5000);
+             }
+        });
+}
 
 function fire_ajax_submit() {
     var search = $("#postId").val();

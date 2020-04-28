@@ -4,12 +4,12 @@
 
 <div class="collapse" id="collapseCompileForm">
     <div class="form-group mt-3">
-        <form action="/compile/post/${post.id}" method="post" enctype="multipart/form-data" id="compile-post-form">
+        <form enctype="multipart/form-data" id="compile-post-form">
             <div class="form-group col-md-6">
-                <input class="form-control mb-3 mt-3" type="text" name = "input" placeholder="Your input">
+                <input class="form-control mb-3 mt-3" type="text" name = "input" id="compile-form-input" placeholder="Your input">
             </div>
             <div class="input-group col-md-6">
-                <select class="custom-select" name="compiler" id="inputGroupSelect04" required>
+                <select class="custom-select" name="compiler" id="compile-form-select" required>
                     <option value="">Choose compiler...</option>
                     <option value="1">Python</option>
                     <option value="2">Bash</option>

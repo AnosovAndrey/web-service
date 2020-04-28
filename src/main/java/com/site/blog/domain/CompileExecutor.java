@@ -69,8 +69,8 @@ public class CompileExecutor implements Runnable{
         postRepo.save(originalPost);
 
         deleteDirectory();
-/*        String output = "test 123";
-        //System.out.println(output);
+/*        String output = "123 yo";
+        System.out.println(output);
         Post originalPost = postRepo.findById(this.post.getId()).get();
         originalPost.setOutput(output);
         postRepo.save(originalPost);*/

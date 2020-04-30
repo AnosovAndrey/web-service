@@ -9,10 +9,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <#if user??>
             <li class="nav-item">
                 <a class="nav-link" href="/posts">Posts</span></a>
             </li>
+            <#if user??>
             <li class="nav-item">
                 <a class="nav-link" href="/user-posts/${currentUserId}">My posts</span></a>
             </li>

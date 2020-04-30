@@ -138,9 +138,10 @@ public class CompileExecutor implements Runnable{
             case 8: return "\'go run\' " + filename;
             case 9: return "javac " + filename + " \'./usercode/javaRunner.sh\'";
             case 10: return "\'vbnc -nologo -quiet\' " + filename + " \'mono /usercode/" + filename.split("\\.", 2)[0] + "\'";
-            case 11: return "mcs " + filename + " \'mono /usercode/" + filename.split("\\.", 2)[0] + "\'";
-            case 12: return "perl " + filename;
-            case 13: return "\'env HOME=/opt/rust /opt/rust/.cargo/bin/rustc\' " + filename + " \'-o /usercode/a.out\'";
+            case 11: return "\'g++ -o /usercode/a.out\' " + filename + " /usercode/a.out";
+            case 12: return "mcs " + filename + " \'mono /usercode/" + filename.split("\\.", 2)[0] + "\'";
+            case 13: return "perl " + filename;
+            case 14: return "\'env HOME=/opt/rust /opt/rust/.cargo/bin/rustc\' " + filename + " \'-o /usercode/a.out\'";
             default:
                 break;
         }

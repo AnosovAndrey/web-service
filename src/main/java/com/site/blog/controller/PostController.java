@@ -170,7 +170,7 @@ public class PostController {
             postRepo.save(post);
         }
 
-        return "redirect:/user-posts/" + user;
+        return "redirect:/post/" + post.getId();
     }
 
     @GetMapping("/post/{post}")

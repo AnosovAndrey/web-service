@@ -13,7 +13,7 @@
         <p class="card-text">${post.text}</p>
         <#if post.filename??>
             <#if !(post.filename?ends_with("jpg") || post.filename?ends_with("png") || post.filename?ends_with("PNG"))>
-                <a href="/img/${post.filename}" download>${post.filename}</a>
+                <a href="/img/${post.filename}" download>${post.filename?keep_after(".")}</a>
                 <#if isCurrentUser>
                     <a class="ml-3"><#include "parts/codeCompile.ftlh" /></a>
                 </#if>
@@ -23,12 +23,14 @@
         </#if>
     <p class="text-secondary mt-3" id="compile-output"><#if post.output??>Compile output: ${post.output}</#if></p>
     </div>
-    <#if isCurrentUser>
+    <#if isCurrentUser || isAdmin>
         <div class="card-footer bg-transparent">
             <div class="list-group">
-                <a href="/user-posts/${post.author.id}?post=${post.id}">
-                    Edit post
-                </a>
+                <#if isCurrentUser>
+                    <a href="/user-posts/${post.author.id}?post=${post.id}">
+                        Edit post
+                    </a>
+                </#if>
                 <#if isAdmin>
                     <a href="/deletePost/${post.id}">
                         Delete post

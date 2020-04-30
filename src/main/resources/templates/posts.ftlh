@@ -1,4 +1,5 @@
 <#import "parts/common.ftlh" as c>
+<#include "parts/security.ftlh">
 <@c.page>
 
 <div class="form-row">
@@ -10,7 +11,9 @@
     </div>
 </div>
 
-<#include "parts/postEdit.ftlh" />
+<#if user??&&name!="Guest">
+    <#include "parts/postEdit.ftlh" />
+</#if>
 
 <#include "parts/postList.ftlh" />
 </@c.page>

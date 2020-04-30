@@ -26,7 +26,7 @@
             <div class="form-group col-md-6">
                 <div class="custom-file">
                     <input type="file" name="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile"><#if post??>${post.filename}<#else>Choose file</#if></label>
+                    <label class="custom-file-label" for="customFile"><#if post??><#if post.filename??>${post.filename}<#else>Choose file</#if><#else>Choose file</#if></label>
                 </div>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />

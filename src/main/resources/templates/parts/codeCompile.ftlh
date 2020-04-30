@@ -15,17 +15,16 @@
                     <option value="2">Bash</option>
                     <option value="3">Ruby</option>
                     <option value="4">Clojure</option>
-                    <option value="5">Ruby</option>
-                    <option value="6">JavaScript</option>
-                    <option value="7">Php</option>
-                    <option value="8">Scala</option>
-                    <option value="9">Go</option>
-                    <option value="10">C/C++</option>
-                    <option value="11">Java</option>
-                    <option value="12">VB.NET</option>
-                    <option value="13">C#</option>
-                    <option value="14">Perl</option>
-                    <option value="15">Rust</option>
+                    <option value="5">JavaScript</option>
+                    <option value="6">Php</option>
+                    <option value="7">Scala</option>
+                    <option value="8">Go</option>
+                    <option value="9">Java</option>
+                    <option value="10">VB.NET</option>
+                    <option value="11">C/C++</option>
+                    <option value="12">C#</option>
+                    <option value="13">Perl</option>
+                    <option value="14">Rust</option>
                 </select>
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-secondary" type="button" id="btn-submit-compile">Compile</button>

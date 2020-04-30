@@ -48,7 +48,7 @@ public class PostController {
             Model model,
             @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable
     ) {
-        Page<Post> page = postService.messageList(pageable, filter);
+        Page<Post> page = postService.postListByTitle(pageable, filter);
 
         model.addAttribute("page", page);
         model.addAttribute("url", "/posts");
@@ -152,18 +152,21 @@ public class PostController {
             @PathVariable Long user,
             @RequestParam("id") Post post,
             @RequestParam("text") String text,
-            @RequestParam("tag") String tag,
-            @RequestParam("file") MultipartFile file
+            @RequestParam("title") String title,
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("tag") String tag
     ) throws IOException {
         if(post.getAuthor().equals(currentUser)){
             //if (message == null)
             if(!StringUtils.isEmpty(text)){
                 post.setText(text);
             }
+            if(!StringUtils.isEmpty(title)){
+                post.setTitle(title);
+            }
             if(!StringUtils.isEmpty(tag)){
                 post.setTag(tag);
             }
-
             saveFile(post, file);
             post.setOutput(null);
 

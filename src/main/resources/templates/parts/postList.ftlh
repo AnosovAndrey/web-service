@@ -6,7 +6,7 @@
     <#list page.content as post>
     <div class="card my-3">
         <div class="card-header">
-            <h2 class="card-title"><a href="/post/${post.id}">${post.tag}</a></h2>
+            <h2 class="card-title"><a href="/post/${post.id}">${post.title}</a></h2>
                 <p class="card-text"><small class="text-muted">Created by</small>
                     <a class="card-text" href="/user-posts/${post.author.id}">${post.authorName}</a>
                 </p>
@@ -19,6 +19,11 @@
         <div class="card-body">
             <p class="card-text">${post.text}</p>
         </div>
+        <#if post.tag??>
+            <div class="card-footer bg-transparent">
+                <button type="button" class="btn btn-secondary btn-sm" formaction="/tag/${post.tag}">${post.tag}</button>
+            </div>
+        </#if>
     </div>
     <#else>
         No posts

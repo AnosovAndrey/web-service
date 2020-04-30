@@ -14,6 +14,7 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     Page<Post> findByUser(Pageable pageable, @Param("author") User author);
 
     Page<Post> findAll(Pageable pageable);
+    Page<Post> findByTitle(String title, Pageable pageable);
     Page<Post> findByTag(String tag, Pageable pageable);
     Page<Post> findByAuthor(User user, Pageable pageable);
 

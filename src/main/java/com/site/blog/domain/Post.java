@@ -15,10 +15,11 @@ public class Post {
     @Length(max = 2048, message = "Message too long (more than 2Kb)")
     private String text;
     @Length(max = 255, message = "Message too long (more than 255)")
-    private String tag;
+    private String title;
 
     private String output;
     private String filename;
+    private String tag;
 
     public void setId(Long id) {
         this.id = id;
@@ -39,10 +40,10 @@ public class Post {
     public Post(){
     }
 
-    public Post(String text, String tag, User user) {
+    public Post(String text, String title, User user) {
         this.author = user;
         this.text = text;
-        this.tag = tag;
+        this.title = title;
     }
 
     public String getAuthorName(){
@@ -61,12 +62,12 @@ public class Post {
         return id;
     }
 
-    public String getTag() {
-        return tag;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getOutput() {
@@ -83,5 +84,13 @@ public class Post {
 
     public void setFilename(String filename) {
         this.filename = filename;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

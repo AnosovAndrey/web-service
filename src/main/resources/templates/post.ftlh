@@ -5,7 +5,10 @@
 
 <div class="card bg-light mb-3">
     <div class="card-body">
-        <h2 class="card-title"><a href="/post/${post.id}">${post.tag}</a></h2>
+        <h2 class="card-title"><a href="/post/${post.id}">${post.title}</a></h2>
+        <#if post.tag??>
+            <button type="button" class="btn btn-outline-secondary btn-sm" formaction="/tag/${post.tag}">${post.tag}</button>
+        </#if>
         <p class="card-text">
             <small class="text-muted">Created by</small>
             <a class="card-text" href="/user-posts/${post.author.id}">${post.authorName}</a>

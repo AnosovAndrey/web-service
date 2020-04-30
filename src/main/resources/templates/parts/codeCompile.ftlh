@@ -10,7 +10,7 @@
             </div>
             <div class="input-group col-md-6">
                 <select class="custom-select" name="compiler" id="compile-form-select" required>
-                    <option value="">Choose compiler...</option>
+                    <option value="" selected disabled>Choose compiler...</option>
                     <option value="1">Python</option>
                     <option value="2">Bash</option>
                     <option value="3">Ruby</option>

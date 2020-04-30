@@ -21,7 +21,7 @@
         </div>
         <#if post.tag??>
             <div class="card-footer bg-transparent">
-                <button type="button" class="btn btn-secondary btn-sm" formaction="/tag/${post.tag}">${post.tag}</button>
+                <a href="/tag/${post.tag}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">${post.tag}</a>
             </div>
         </#if>
     </div>

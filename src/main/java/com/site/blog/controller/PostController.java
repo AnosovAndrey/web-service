@@ -63,6 +63,7 @@ public class PostController {
             @Valid Post post,
             BindingResult bindingResult,
             Model model,
+            @RequestParam(name = "tag", required = false) String tag,
             @RequestParam("file") MultipartFile file
     ) throws IOException {
         post.setAuthor(user);
@@ -76,8 +77,11 @@ public class PostController {
 
             saveFile(post, file);
 
-            model.addAttribute("post", null);
+            if(!StringUtils.isEmpty(tag)){
+                post.setTag(tag);
+            }
 
+            model.addAttribute("post", null);
             postRepo.save(post);
         }
 
@@ -146,6 +150,25 @@ public class PostController {
         return "userPosts";
     }
 
+    @GetMapping("/tag/{tag}")
+    public String getPostsByTag(
+            @AuthenticationPrincipal User currentUser,
+            @PathVariable String tag,
+            Model model,
+            @RequestParam(required = false) Post post,
+            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageble
+    ) {
+        Page<Post> page = postService.postListByTag(pageble, tag);
+
+        model.addAttribute("posts", page);
+        model.addAttribute("tag", tag);
+        model.addAttribute("post", post);
+        model.addAttribute("url", "/tag/" + tag);
+        model.addAttribute("page", page);
+
+        return "postsWithTag";
+    }
+
     @PostMapping("/user-posts/{user}")
     public String updatePosts(
             @AuthenticationPrincipal User currentUser,
@@ -154,7 +177,7 @@ public class PostController {
             @RequestParam("text") String text,
             @RequestParam("title") String title,
             @RequestParam("file") MultipartFile file,
-            @RequestParam("tag") String tag
+            @RequestParam(name = "tag", required = false) String tag
     ) throws IOException {
         if(post.getAuthor().equals(currentUser)){
             //if (message == null)
@@ -166,6 +189,8 @@ public class PostController {
             }
             if(!StringUtils.isEmpty(tag)){
                 post.setTag(tag);
+            } else {
+                post.setTag(null);
             }
             saveFile(post, file);
             post.setOutput(null);

@@ -17,6 +17,10 @@ public class PostService {
         return postRepo.findByUser(pageable, author);
     }
 
+    public Page<Post> postListByTag(Pageable pageable, String tag) {
+        return postRepo.findByTag(tag, pageable);
+    }
+
     public Page<Post> postListByTitle(Pageable pageable, String filter){
         if (filter != null && !filter.isEmpty()) {
             return postRepo.findByTitle(filter, pageable);
@@ -25,7 +29,7 @@ public class PostService {
         }
     }
 
-    public Page<Post> postListByTag(Pageable pageable, String tag){
+    public Page<Post> postsWithTag(Pageable pageable, String tag){
         if (tag != null && !tag.isEmpty()) {
             return postRepo.findByTag(tag, pageable);
         } else {

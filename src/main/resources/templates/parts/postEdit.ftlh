@@ -31,7 +31,8 @@
             </div>
             <div class="form-group col-md-2">
                 <select class="custom-select" name="tag" id="tag-form-select">
-                    <option value="">Add tag...</option>
+                    <option selected disabled>Add tag...</option>
+                    <#if post??><#if post.tag??><option  value="">Remove tag</option></#if></#if>
                     <option value="Python">Python</option>
                     <option value="Bash">Bash</option>
                     <option value="C/C++">C/C++</option>

@@ -7,7 +7,7 @@
     <div class="card-body">
         <h2 class="card-title"><a href="/post/${post.id}">${post.title}</a></h2>
         <#if post.tag??>
-            <button type="button" class="btn btn-outline-secondary btn-sm" formaction="/tag/${post.tag}">${post.tag}</button>
+            <a href="/tag/${post.tag}" class="btn btn-outline-secondary btn-sm" role="button" aria-pressed="true">${post.tag}</a>
         </#if>
         <p class="card-text">
             <small class="text-muted">Created by</small>

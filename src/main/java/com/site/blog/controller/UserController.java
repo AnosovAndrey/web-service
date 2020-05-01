@@ -56,6 +56,19 @@ public class UserController {
         return "profile";
     }
 
+    @GetMapping("profile/{user}")
+    public String getUserProfile(Model model, @AuthenticationPrincipal User currentUser, @PathVariable User user){
+        model.addAttribute("username", user.getUsername());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("userChannel", user);
+        model.addAttribute("subscriptionsCount", user.getSubscriptions().size());
+        model.addAttribute("subscribersCount", user.getSubscribers().size());
+        model.addAttribute("isSubscriber", user.getSubscribers().contains(currentUser));
+        model.addAttribute("url", "/user-posts/" + user.getId());
+
+        return "profile";
+    }
+
     @PostMapping("profile")
     public String updateProfile(
             @AuthenticationPrincipal User user,

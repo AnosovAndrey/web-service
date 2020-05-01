@@ -14,8 +14,6 @@ public class Message {
     @NotBlank(message = "Please fill the message")
     @Length(max = 2048, message = "Message too long (more than 2Kb)")
     private String text;
-    @Length(max = 255, message = "Message too long (more than 255)")
-    private String tag;
 
     public String getFilename() {
         return filename;
@@ -35,6 +33,11 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User author;
 
+    @ManyToOne(fetch =  FetchType.EAGER)
+    @JoinColumn(name = "receiver_id")
+    private User receiver;
+
+
     public User getAuthor() {
         return author;
     }
@@ -46,13 +49,17 @@ public class Message {
     public Message() {
     }
 
-    public Message(String text, String tag, User user) {
+    public Message(String text, User receiver, User user) {
         this.author = user;
+        this.receiver = receiver;
         this.text = text;
-        this.tag = tag;
     }
 
     public String getAuthorName(){
+        return author != null ? author.getUsername() : "<none>";
+    }
+
+    public String getReceiverName(){
         return author != null ? author.getUsername() : "<none>";
     }
 
@@ -68,11 +75,11 @@ public class Message {
         return id;
     }
 
-    public String getTag() {
-        return tag;
+    public User getReceiver() {
+        return receiver;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
 }

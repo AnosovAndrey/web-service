@@ -7,7 +7,7 @@
     <#list page.content as comment>
         <div class="card my-3">
             <div class="card-body">
-                <p class="card-text">${comment.text}</p>
+                <p class="card-text formatted-text">${comment.text}</p>
                 <#if comment.filename??>
                     <#if !(comment.filename?ends_with("jpg") || comment.filename?ends_with("png") || comment.filename?ends_with("PNG"))>
                         <a href="/img/${comment.filename}" download>${comment.filename}</a>
@@ -33,3 +33,4 @@
         No comments
     </#list>
 </div>
+<script type="text/javascript" src="/static/formatter.js"></script>

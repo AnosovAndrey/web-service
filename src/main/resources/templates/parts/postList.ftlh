@@ -17,7 +17,7 @@
                 </#if>
         </div>
         <div class="card-body">
-            <p class="card-text">${post.text}</p>
+            <p class="card-text formatted-text">${post.text}</p>
         </div>
         <#if post.tag??>
             <div class="card-footer bg-transparent">

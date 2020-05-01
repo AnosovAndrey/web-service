@@ -4,8 +4,12 @@
 
 <div class="collapse <#if post??>show</#if>" id="collapseExample">
     <div class="form-group mt-3">
+        <div class="alert alert-primary col-md-8" role="alert">
+            Put code in tags: &ltcode&gt Your code. &lt/code&gt</br>
+            Put link in tags: &lt;link&gtyour link&lt;/link&gt&lt;link-name&gtlink name&lt;/link-name&gt
+        </div>
         <form method="post" enctype="multipart/form-data">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-8">
                 <input type="text" class="form-control ${(titleError??)?string('is-invalid', '')}"
                        value="<#if post??>${post.title}</#if>" name="title" placeholder="Title" required>
                 <#if titleError??>
@@ -14,16 +18,16 @@
                 </div>
             </#if>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-8">
                 <textarea type="text" class="form-control ${(textError??)?string('is-invalid','')}"
-                                  value="<#if post??>${post.text}</#if>" name="text" rows=5 cols=20 maxlength=250 placeholder="Post description" required><#if post??>${post.text}</#if></textarea>
+                                  value="<#if post??>${post.text}</#if>" name="text" rows=5 cols=20 placeholder="Post description" required><#if post??>${post.text}</#if></textarea>
                 <#if textError??>
                     <div class="invalid-feedback">
                         ${textError}
                     </div>
                 </#if>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-8">
                 <div class="custom-file">
                     <input type="file" name="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile"><#if post??><#if post.filename??>${post.filename?keep_after(".")}<#else>Choose file</#if><#else>Choose file</#if></label>

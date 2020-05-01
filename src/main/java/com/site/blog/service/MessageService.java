@@ -19,7 +19,8 @@ public class MessageService {
 
     public Page<Message> messageList(Pageable pageable, String filter){
         if (filter != null && !filter.isEmpty()) {
-            return messageRepo.findByTag(filter, pageable);
+            //return messageRepo.findByTag(filter, pageable);
+            return messageRepo.findAll(pageable);
         } else {
             return messageRepo.findAll(pageable);
         }

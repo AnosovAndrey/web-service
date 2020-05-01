@@ -29,6 +29,7 @@
               $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
             });
 </script>
+<script type="text/javascript" src="/static/formatter.js"></script>
 </body>
 </html>
 </#macro>

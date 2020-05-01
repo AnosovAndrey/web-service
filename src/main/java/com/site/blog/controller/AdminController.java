@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.io.File;
-import java.util.Iterator;
 
 @Controller
 public class AdminController {
@@ -70,14 +69,6 @@ public class AdminController {
                     }
                     commentRepo.delete(comment);
                 });
-        /*Iterable<Comment> comments = commentRepo.findByPost(pageble, post);
-        for (Iterator<Comment> it = comments.iterator(); it.hasNext(); ) {
-            Comment comment = it.next();
-            if (comment.getFilename() != null) {
-                deleteFile(comment.getFilename());
-            }
-            commentRepo.delete(comment);
-        }*/
 
         postRepo.delete(post);
 

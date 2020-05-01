@@ -145,9 +145,9 @@ public class MessageController {
             if(!StringUtils.isEmpty(text)){
                 message.setText(text);
             }
-            if(!StringUtils.isEmpty(tag)){
+/*            if(!StringUtils.isEmpty(tag)){
                 message.setTag(tag);
-            }
+            }*/
 
             saveFile(message, file);
 

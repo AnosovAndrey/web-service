@@ -1,0 +1,2 @@
+ALTER TABLE message ADD checked BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE post ADD compile_version int8 NOT NULL DEFAULT 0;

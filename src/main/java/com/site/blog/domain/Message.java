@@ -37,6 +37,7 @@ public class Message {
     @JoinColumn(name = "receiver_id")
     private User receiver;
 
+    private Boolean checked;
 
     public User getAuthor() {
         return author;
@@ -81,5 +82,13 @@ public class Message {
 
     public void setReceiver(User receiver) {
         this.receiver = receiver;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
     }
 }

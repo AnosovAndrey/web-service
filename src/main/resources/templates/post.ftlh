@@ -24,11 +24,22 @@
                 <img style="width: 400px; height: 400px;" src="/img/${post.filename}" class="card-img-top">
             </#if>
         </#if>
-        <p class="text-secondary mt-3" id="compile-output">
-            <#if post.output??>
-                Compile output: <samp>${post.output}</samp>
-            </#if>
-        </p>
+        <#if post.output??>
+            <p class="mt-2">
+                <a class="card-link" data-toggle="collapse" href="#collapsedOutput" role="button" aria-expanded="false" aria-controls="collapsedOutput">
+                    Compile output
+                </a>
+            </p>
+            <div class="collapse" id="collapsedOutput">
+                <p class="text-secondary mt-3" id="compile-output">
+                    <samp class="formatted-output">${post.output}</samp>
+                </p>
+            </div>
+        <#else>
+            <p class="text-secondary mt-3" id="compile-output">
+                <samp class="formatted-output"></samp>
+            </p>
+        </#if>
     </div>
     <#if isCurrentUser || isAdmin>
         <div class="card-footer bg-transparent">

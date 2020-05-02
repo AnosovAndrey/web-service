@@ -40,15 +40,13 @@ public class CompileController {
         return ResponseEntity.ok("Start compile...");
     }
 
-    @PostMapping("/api/search")
+    @PostMapping("/api/search/{version}")
     public ResponseEntity<String> getSearchResultViaAjax(
+             @PathVariable Long version,
              @RequestBody String postId,
              Errors errors
     ) {
-        //If error, just return a 400 bad request, along with the error message
-        //System.out.println(postId);
         if (errors.hasErrors()) {
-
             return ResponseEntity.badRequest()
                     .body(errors.getAllErrors()
                             .stream().map(x -> x.getDefaultMessage())
@@ -56,15 +54,16 @@ public class CompileController {
         }
 
         Post originalPost = postRepo.findById(Long.valueOf(postId)).get();
-        String output = originalPost.getOutput();
-        //System.out.println(output);
-        if (output != null && !output.isEmpty()) {
-            output = "Compiler output: " + output;
+        if(originalPost.getCompileVersion() > version){
+            String output = originalPost.getOutput();
+            if (output != null && !output.isEmpty()) {
+                output = "Compiler output: " + output;
+            } else {
+                output = "not found";
+            }
+            return ResponseEntity.ok(output);
         } else {
-            output = "not found";
+            return ResponseEntity.ok("wait...");
         }
-
-        return ResponseEntity.ok(output);
     }
-
 }

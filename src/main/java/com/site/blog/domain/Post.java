@@ -29,6 +29,9 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User author;
 
+    @Column(name="compile_version")
+    private Long compileVersion;
+
     public User getAuthor() {
         return author;
     }
@@ -92,5 +95,17 @@ public class Post {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public Long getCompileVersion() {
+        return compileVersion;
+    }
+
+    public void setCompileVersion(Long compileVersion) {
+        this.compileVersion = compileVersion;
+    }
+
+    public void changeCompileVersion(){
+        this.compileVersion = ++this.compileVersion;
     }
 }

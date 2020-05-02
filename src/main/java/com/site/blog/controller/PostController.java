@@ -193,7 +193,10 @@ public class PostController {
                 post.setTag(null);
             }
             saveFile(post, file);
-            post.setOutput(null);
+            if (file != null && !file.getOriginalFilename().isEmpty()) {
+                post.setOutput(null);
+                post.setCompileVersion(0L);
+            }
 
             postRepo.save(post);
         }

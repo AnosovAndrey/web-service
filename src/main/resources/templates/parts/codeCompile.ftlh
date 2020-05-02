@@ -32,6 +32,7 @@
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <input type="hidden" id="postId" value="${post.id}">
+            <input type="hidden" id="postCompileVersion" value="${post.compileVersion}">
         </form>
     </div>
 </div>

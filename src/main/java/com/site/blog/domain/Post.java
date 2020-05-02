@@ -47,6 +47,7 @@ public class Post {
         this.author = user;
         this.text = text;
         this.title = title;
+        //this.compileVersion = 0L;
     }
 
     public String getAuthorName(){

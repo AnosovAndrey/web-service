@@ -44,7 +44,7 @@ public class CompileExecutor implements Runnable{
 
     @Override
     public void run() {
-/*        createDirectory();
+        createDirectory();
 
         String permissionCommand = "sudo chmod 777 -R " + path + folder;
         String execCommand = "sudo bash " + path + "dockerFiles/DockerTimeout.sh 20s -u mysql -e \\'NODE_PATH=/usr/local/lib/node_modules\\' -i -t -v \""
@@ -69,8 +69,8 @@ public class CompileExecutor implements Runnable{
         originalPost.setOutput(output);
         postRepo.save(originalPost);
 
-        deleteDirectory();*/
-        try {
+        deleteDirectory();
+        /*try {
             TimeUnit.SECONDS.sleep(15);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -81,7 +81,7 @@ public class CompileExecutor implements Runnable{
         Post originalPost = postRepo.findById(this.post.getId()).get();
         originalPost.changeCompileVersion();
         originalPost.setOutput(output);
-        postRepo.save(originalPost);
+        postRepo.save(originalPost);*/
     }
 
     public static void execute(String command) throws InterruptedException, IOException {

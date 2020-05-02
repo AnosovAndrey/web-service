@@ -81,6 +81,8 @@ public class PostController {
                 post.setTag(tag);
             }
 
+            post.setCompileVersion(0L);
+
             model.addAttribute("post", null);
             postRepo.save(post);
         }
@@ -188,9 +190,12 @@ public class PostController {
                 post.setTitle(title);
             }
             if(!StringUtils.isEmpty(tag)){
-                post.setTag(tag);
-            } else {
-                post.setTag(null);
+                if(!tag.equals("remove")){
+                    post.setTag(tag);
+                }
+                else {
+                    post.setTag(null);
+                }
             }
             saveFile(post, file);
             if (file != null && !file.getOriginalFilename().isEmpty()) {

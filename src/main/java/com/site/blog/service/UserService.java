@@ -2,7 +2,7 @@ package com.site.blog.service;
 
 import com.site.blog.domain.Role;
 import com.site.blog.domain.User;
-import com.site.blog.repos.UserRepo;
+import com.site.blog.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;

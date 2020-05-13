@@ -2,7 +2,7 @@ package com.site.blog.service;
 
 import com.site.blog.domain.Message;
 import com.site.blog.domain.User;
-import com.site.blog.repos.MessageRepo;
+import com.site.blog.repository.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

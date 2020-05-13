@@ -2,7 +2,7 @@ package com.site.blog.controller;
 
 import com.site.blog.domain.Message;
 import com.site.blog.domain.User;
-import com.site.blog.repos.MessageRepo;
+import com.site.blog.repository.MessageRepo;
 import com.site.blog.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -40,22 +40,6 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Post> posts;
 
-    public Set<User> getSubscribers() {
-        return subscribers;
-    }
-
-    public void setSubscribers(Set<User> subscribers) {
-        this.subscribers = subscribers;
-    }
-
-    public Set<User> getSubscriptions() {
-        return subscriptions;
-    }
-
-    public void setSubscriptions(Set<User> subscriptions) {
-        this.subscriptions = subscriptions;
-    }
-
     @ManyToMany
     @JoinTable(
             name = "user_subscriptions",
@@ -83,6 +67,22 @@ public class User implements UserDetails {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public Set<User> getSubscribers() {
+        return subscribers;
+    }
+
+    public void setSubscribers(Set<User> subscribers) {
+        this.subscribers = subscribers;
+    }
+
+    public Set<User> getSubscriptions() {
+        return subscriptions;
+    }
+
+    public void setSubscriptions(Set<User> subscriptions) {
+        this.subscriptions = subscriptions;
     }
 
     public Set<Message> getMessages() {

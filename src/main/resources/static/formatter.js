@@ -1,7 +1,4 @@
 $.fn.multiline = function(){
-     //this.text(text);
-     //var newText = this.html().replace(/\n/g,'<br/>');
-     //alert(this.html());
      this.html(this.html()
          .replace(/\n/g,'<br/>')
          .replace('&lt;code&gt;', '<pre><code>')

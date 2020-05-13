@@ -2,7 +2,7 @@ package com.site.blog.controller;
 
 
 import com.site.blog.domain.Post;
-import com.site.blog.repos.PostRepo;
+import com.site.blog.repository.PostRepo;
 import com.site.blog.service.CompileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

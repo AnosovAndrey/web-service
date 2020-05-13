@@ -1,7 +1,7 @@
 package com.site.blog.domain;
 
 
-import com.site.blog.repos.PostRepo;
+import com.site.blog.repository.PostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -167,7 +167,7 @@ public class CompileExecutor implements Runnable{
             e.printStackTrace();
         }
 
-            File inputFile = new File(path + folder + "inputFile");
+        File inputFile = new File(path + folder + "inputFile");
 
         try {
             inputFile.createNewFile();

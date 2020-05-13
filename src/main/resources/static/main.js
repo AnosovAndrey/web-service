@@ -31,7 +31,6 @@ function compile_ajax_submit() {
             timeout: 600000,
             success: function (data) {
 
-                //var json = JSON.stringify(data, null, 4);
                 $('#compile-output').html(data);
 
                 console.log("SUCCESS : ", data);

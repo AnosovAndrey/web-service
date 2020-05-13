@@ -21,9 +21,6 @@ public class Post {
     private String filename;
     private String tag;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @ManyToOne(fetch =  FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -64,6 +61,10 @@ public class Post {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {

@@ -23,11 +23,11 @@ public class Comment {
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;
 
-
     @ManyToOne(fetch =  FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User author;
 
+    private String filename;
 
     public String getFilename() {
         return filename;
@@ -36,8 +36,6 @@ public class Comment {
     public void setFilename(String filename) {
         this.filename = filename;
     }
-
-    private String filename;
 
     public void setId(Long id) {
         this.id = id;
